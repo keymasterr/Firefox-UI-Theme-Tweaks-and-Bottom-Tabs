@@ -6,7 +6,9 @@ In MacOS there is a menu bar on top. So browser tabs should be positioned on the
 
 And I hate that circle around the Back button. So as full-width search panel on bottom.
 
-Also the color theme was changed to be less contrast.
+Also the Dark color theme was changed to be less contrast.
+
+**UPD:** If you are struggling from bold fonts (I believe it happens on MacOS Catalina), there is a rule in _userContent.css_ to fix inpropper font smoothing. Put that file next to _userChrome.css_.
 
 ## How to install
 
