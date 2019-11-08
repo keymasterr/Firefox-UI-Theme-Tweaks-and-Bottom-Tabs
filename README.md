@@ -8,7 +8,7 @@ And I hate that circle around the Back button. So as full-width search panel on 
 
 Also the Dark color theme was changed to be less contrast.
 
-**UPD:** If you are struggling from bold fonts (I believe it happens on MacOS Catalina), there is a rule in _userContent.css_ to fix inpropper font smoothing. Put that file next to _userChrome.css_.
+**UPD:** If you suffer from bold fonts (I believe it happens on MacOS Catalina), there is a rule in _userContent.css_ to fix inpropper font smoothing. Put that file next to _userChrome.css_.
 
 ## How to install
 
