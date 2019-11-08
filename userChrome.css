@@ -1,7 +1,7 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /* THEME */
-  window#main-window {
+  :root[lwtheme="true"][lwthemetextcolor="bright"] {
     --lwt-accent-color: rgb(35, 35, 35) !important;
     --lwt-toolbar-field-background-color: rgb(35, 35, 35) !important;
     --lwt-toolbar-field-background-color: rgb(35, 35, 35) !important;
@@ -102,7 +102,7 @@
     --tab-min-height: 32px !important; /* adjust */
   }
 
-  #browser {
+  :root:not([inDOMFullscreen="true"]) #browser {
     margin-bottom: var(--tab-min-height) !important;
   }
 
