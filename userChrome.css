@@ -1,6 +1,10 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /* THEME */
+  :root {
+    --lwt-accent-color: rgb(227, 228, 230) !important;
+    --toolbar-bgcolor: rgb(245, 246, 247) !important;
+  }
   :root[lwtheme="true"][lwthemetextcolor="bright"] {
     --lwt-accent-color: rgb(35, 35, 35) !important;
     --lwt-toolbar-field-background-color: rgb(35, 35, 35) !important;
@@ -17,12 +21,19 @@
     --panel-disabled-color: rgba(224, 224, 224, 0.5) !important;
   }
 
+  :root[lwtheme="true"][lwthemetextcolor="bright"] #urlbar, .searchbar-textbox {
+    border-color: var(--lwt-accent-color) !important;
+  }
+
+  #TabsToolbar-customization-target {
+    background-color: var(--lwt-accent-color);
+  }
+  
   .tab-line {
     display: none;
   }
 
   #urlbar, .searchbar-textbox {
-    border-color: var(--lwt-accent-color) !important;
     box-shadow: none !important;
   }
 
@@ -88,7 +99,6 @@
 
   #tabbrowser-tabs {
     box-sizing: border-box !important;
-    background: var(--lwt-accent-color) !important;
   }
 
   :root:not([chromehidden*="toolbar"]) #navigator-toolbox {
@@ -121,7 +131,6 @@
     height: var(--tab-min-height) !important;
     margin-bottom: 1px !important;
     box-shadow: ThreeDShadow 0 -1px inset, -moz-dialog 0 1px !important; /* omit */
-    background-color: var(--toolbar-bgcolor) !important;
     color: var(--toolbar-color) !important;
   }
 
@@ -139,7 +148,6 @@
   }
 
   #TabsToolbar-customization-target {
-    background-color: var(--lwt-accent-color);
     width: 100vw;
   }
 
