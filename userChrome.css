@@ -25,6 +25,13 @@
     border-color: var(--lwt-accent-color) !important;
   }
 
+  :root[lwtheme="true"][lwthemetextcolor="bright"] #nav-bar {
+    padding-top: 1px;
+    box-shadow: inset 0px 0.25px 0px var(--lwt-accent-color) !important;
+    border-top: .5px solid rgba(0, 0, 0);
+    border-bottom: .5px solid var(--arrowpanel-background);
+  }
+
   #TabsToolbar-customization-target {
     background-color: var(--lwt-accent-color);
   }
