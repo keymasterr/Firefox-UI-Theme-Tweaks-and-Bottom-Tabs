@@ -49,12 +49,12 @@
 
 
 /* BACK BUTTON */
-  :root:not([uidensity="compact"]) #back-button {
+  #back-button {
     border-radius: unset !important;
     padding: 0 var(--toolbarbutton-outer-padding) !important;
   }
 
-  :root:not([uidensity="compact"]) #back-button > .toolbarbutton-icon {
+  #back-button > .toolbarbutton-icon {
     background-color: unset !important;
     border: unset !important;
     padding: var(--toolbarbutton-inner-padding) !important;
@@ -64,11 +64,11 @@
   }
 
   /* Hover and Active states to mimic other buttons */
-  :root:not([uidensity="compact"]) #back-button:hover:not([disabled]) > .toolbarbutton-icon {
+  #back-button:hover:not([disabled]) > .toolbarbutton-icon {
     background-color: var(--toolbarbutton-hover-background) !important;
   }
 
-  :root:not([uidensity="compact"]) #back-button:active:not([disabled]) > .toolbarbutton-icon {
+  #back-button:active:not([disabled]) > .toolbarbutton-icon {
     background-color: var(--toolbarbutton-active-background) !important;
   }
 /* BACK BUTTON END*/
