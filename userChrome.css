@@ -79,16 +79,17 @@
     display: block !important;
     position: absolute !important;
     margin-top: calc(100vh - var(--tab-min-height));
+    z-index: 9000 !important;
   }
 
   /* window control buttons to top */
   .titlebar-buttonbox-container { 
-    top: calc(-100vh + var(--tab-min-height) - 1px);
+    top: calc(-100vh + var(--tab-min-height) + 1px);
     position: absolute !important;
     display: block !important;
   }
-  :root:not([inFullscreen="true"]) #nav-bar-customization-target {
-    margin-left: 80px;
+  #nav-bar:not([inFullscreen="true"]) #nav-bar-customization-target {
+    margin-left: 80px !important;
   }
 
   .titlebar-spacer {display: none !important;}
