@@ -4,6 +4,7 @@
   :root {
     --lwt-accent-color: rgb(227, 228, 230) !important;
     --toolbar-bgcolor: rgb(245, 246, 247) !important;
+    --lwt-background-tab-separator-color: var(--urlbar-separator-color)
   }
   :root[lwtheme="true"][lwthemetextcolor="bright"] {
     --lwt-accent-color: rgb(35, 35, 35) !important;
@@ -87,6 +88,7 @@
     top: calc(-100vh + var(--tab-min-height) + 1px);
     position: absolute !important;
     display: block !important;
+    margin-top: calc( var(--arrowpanel-padding) / 2 ) !important;
   }
   #nav-bar:not([inFullscreen="true"]) #nav-bar-customization-target {
     margin-left: 80px !important;
