@@ -9,7 +9,6 @@
   :root[lwtheme="true"][lwthemetextcolor="bright"] {
     --lwt-accent-color: rgb(35, 35, 35) !important;
     --lwt-toolbar-field-background-color: rgb(35, 35, 35) !important;
-    --lwt-toolbar-field-background-color: rgb(35, 35, 35) !important;
     --autocomplete-popup-background: rgb(62, 62, 62) !important;
     --arrowpanel-background: rgb(62, 62, 62) !important;
     --toolbar-bgcolor: rgb(76, 76, 76) !important;
@@ -29,7 +28,7 @@
   #TabsToolbar-customization-target {
     background-color: var(--lwt-accent-color);
   }
-  
+
   .tab-line {
     display: none;
   }
@@ -41,12 +40,40 @@
   #PanelUI-button {
     border-left: none !important;
   }
+
+  .tabbrowser-tab:not([selected="true"])::after,
+  .tabbrowser-tab:not([selected="true"])::before {
+    /* opacity: 0.1 !important; */
+  }
+  .tabbrowser-tab::after,
+  .tabbrowser-tab::before {
+    border-color: #000 !important;
+  }
+
+  #tabbrowser-tabs {
+    --tab-line-color: var(--tab-line-color) !important;
+    background-color: var(--arrowpanel-dimmed);
+  }
+
+  .tab-close-button {
+    stroke-opacity: .5 !important;
+    scale: .9;
+  }
+
+  #tabs-newtab-button {
+    padding-left: 2.5px;
+  }
+
+  /* Darkern top window border highlight */
+  #nav-bar:not([inFullscreen="true"]) {
+    border-top: 1px solid black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  #nav-bar:not([inFullscreen="true"]) #nav-bar-customization-target {
+    margin-top: -1px;
+  }
 /* THEME END */
-
-
-:root #tabbrowser-tabs {
-  --tab-line-color: var(--tab-line-color) !important;
-}
 
 
 /* BACK BUTTON */
@@ -74,6 +101,7 @@
   }
 /* BACK BUTTON END*/
 
+
 /* TABS ON BOTTOM — Firefox 71+ */
   /* tabbar to bottom */
   #titlebar {
@@ -84,8 +112,8 @@
   }
 
   /* window control buttons to top */
-  .titlebar-buttonbox-container { 
-    top: calc(-100vh + var(--tab-min-height) + 1px);
+  .titlebar-buttonbox-container {
+    top: calc(-100vh + var(--tab-min-height) + 2px);
     position: absolute !important;
     display: block !important;
     margin-top: calc( var(--arrowpanel-padding) / 2 ) !important;
@@ -94,14 +122,22 @@
     margin-left: 80px !important;
   }
 
+  #nav-bar:not([inFullscreen="true"]) {
+    margin-bottom: -0.5px;
+  }
+
+  #browser {
+    margin-bottom: calc(var(--tab-min-height) + 0.5px);
+  }
+
   .titlebar-spacer {display: none !important;}
   #toolbar-menubar {display: none !important;}
-  
+
   #TabsToolbar {
     width: 100vw;
   }
 
-  :root:not([inDOMFullscreen="true"]) #browser {
+  ::root:not([inDOMFullscreen="true"]) #browser {
     margin-bottom: var(--tab-min-height) !important;
   }
 
@@ -116,12 +152,20 @@
 
   /* remove tabs list dropdown button */
   #alltabs-button {display: none !important;}
-
-  /* darken top window border highlight */
-  :root[lwtheme="true"][lwthemetextcolor="bright"] #nav-bar {
-    box-shadow: inset 0 0.5px 0 #000 !important;
-  }
 /* TABS ON BOTTOM END */
+
+
+/* Tabs close button: hidden by default */
+  .tab-close-button {
+    opacity: 0;
+  }
+
+  .tabbrowser-tab[selected="true"] .tab-close-button,
+  .tabbrowser-tab:hover .tab-close-button {
+    opacity: 1;
+  }
+
+/* END Tabs close button: hidden by default */
 
 
 /* Compact findbar at the top of the window — Contributor(s): Madis0 */
@@ -157,3 +201,22 @@
     height: inherit !important;
   }
 /* Compact findbar END */
+
+
+/* KEYMASTERR */
+  #pageActionButton {
+    display: none;
+  }
+  #nav-bar-overflow-button {
+    list-style-image: url("chrome://global/skin/icons/more.svg") !important;
+  }
+
+  #urlbar-background {
+    border-color: var(--arrowpanel-field-background) !important;
+  }
+
+  html > box:not([id]),
+  #navigator-toolbox {
+    /* box-shadow: inset 0px 1px black !important; */
+  }
+/* KEYMASTERR END */
