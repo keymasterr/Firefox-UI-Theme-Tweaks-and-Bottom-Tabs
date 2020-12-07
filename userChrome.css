@@ -204,9 +204,10 @@
 
 
 /* KEYMASTERR */
-  #pageActionButton {
-    display: none;
-  }
+  #pageActionButton,
+  #page-action-buttons #pageActionSeparator
+  { display: none; }
+
   #nav-bar-overflow-button {
     list-style-image: url("chrome://global/skin/icons/more.svg") !important;
   }
@@ -218,5 +219,20 @@
   html > box:not([id]),
   #navigator-toolbox {
     /* box-shadow: inset 0px 1px black !important; */
+  }
+
+  /* tab appear animation */
+  .tabbrowser-tab {
+    transform-origin: left;
+    animation-name: tab-appear;
+    animation-duration: .4s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+  }
+  @keyframes tab-appear {
+    from {
+      transform: scaleX(0.8);
+      opacity: 0;
+    }
   }
 /* KEYMASTERR END */
