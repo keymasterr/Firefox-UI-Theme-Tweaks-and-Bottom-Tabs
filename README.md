@@ -1,14 +1,11 @@
-# Firefox UI: Theme Tweaks and Bottom Tabs
+# Firefox UI: Bottom Tabs
 
-<img src="191104 - Firefox theme and layout @2x.png" width="669" height="521">
+<img src="210614 - Firefox layout @2x.png" width="669" height="522">
 
 In MacOS there is a menu bar on top. So browser tabs should be positioned on the bottom of the screen to make it easier to aim them.
 
-And I hate that circle around the Back button. So as full-width search panel on bottom.
-
-Also the Dark color theme was changed to be less contrast.
-
-**UPD:** If you suffer from bold fonts (I believe it happens on MacOS Catalina), there is a rule in _userContent.css_ to fix inpropper font smoothing. Put that file next to _userChrome.css_.
+**2021.06.14 UPD:**
+Since Firefox UI became acceptable from v89, bottom tabs only are in here. No theme tweaks anymore.
 
 ## How to install
 

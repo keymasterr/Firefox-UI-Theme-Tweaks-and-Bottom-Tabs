@@ -1,15 +1,13 @@
-:root { --tbh: 43px; }
+:root { --tbh: 44px; }
 
 /* moving tabs bar down  */
-#titlebar { margin-bottom: calc(-1 * var(--tbh)); }
+#titlebar { margin-bottom: calc(-1 * var(--tbh) + 1px); }
 #TabsToolbar {
   transform: translateY(calc(100vh - var(--tbh)));
   background: var(--lwt-accent-color-inactive, var(--lwt-accent-color));
 }
-#titlebar .titlebar-spacer
-, #alltabs-button
-{ display: none; }
-#titlebar .toolbar-items { padding: 0 2px; }
+#titlebar .titlebar-spacer { display: none; }
+#TabsToolbar-customization-target { padding: 0 2px; }
 :root:not([inDOMFullscreen]) #browser {
   margin-bottom: var(--tbh);
 }
@@ -20,17 +18,22 @@
 }
 .titlebar-buttonbox-container {
   transform: translateY(calc(-100vh + var(--tbh) - 1px));
-  margin-right: -66px;
+  width: 80px;
+  margin-right: -80px;
 }
-.titlebar-buttonbox-container:not(:hover) { opacity: .5 !important; }
 
-/* KEYMASTERR */
+/* KEYMASTERR personal taste */
   /* I really don't like that double arrow for hidden extensions */
   #nav-bar-overflow-button {
     list-style-image: url("chrome://global/skin/icons/more.svg") !important;
   }
 
+  /* dim top window border highlight */
   html {
     border-top: 1px solid black;
   }
+
+  /* hide tabs list-view button */
+  #alltabs-button { display: none; }
+
 /* KEYMASTERR END */
