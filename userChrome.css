@@ -1,203 +1,39 @@
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+:root { --tbh: 43px; }
 
-/* THEME */
-  :root {
-    --lwt-accent-color: rgb(227, 228, 230) !important;
-    --toolbar-bgcolor: rgb(245, 246, 247) !important;
-    --lwt-background-tab-separator-color: var(--urlbar-separator-color)
-  }
-  :root[lwtheme="true"][lwthemetextcolor="bright"] {
-    --lwt-accent-color: rgb(35, 35, 35) !important;
-    --lwt-toolbar-field-background-color: rgb(35, 35, 35) !important;
-    --autocomplete-popup-background: rgb(62, 62, 62) !important;
-    --arrowpanel-background: rgb(62, 62, 62) !important;
-    --toolbar-bgcolor: rgb(76, 76, 76) !important;
-    --tab-line-color: rgb(76, 76, 76) !important;
-    --lwt-text-color: rgba(146, 146, 146) !important;
-    --arrowpanel-color: rgba(224, 224, 224, 1) !important;
-    --lwt-toolbar-field-color: rgba(224, 224, 224, 1) !important;
-    --autocomplete-popup-color: rgb(224, 224, 224) !important;
-    --toolbar-color: rgb(224, 224, 224) !important;
-    --panel-disabled-color: rgba(224, 224, 224, 0.5) !important;
-  }
+/* moving tabs bar down  */
+#titlebar {
+  display: block;
+  position: absolute;
+  z-index: 9000;
+  background: var(--lwt-accent-color-inactive, var(--lwt-accent-color));
+  bottom: 0;
+  width: 100%;
+}
+#titlebar .titlebar-spacer
+, #alltabs-button
+{ display: none; }
+#titlebar .toolbar-items { padding: 0 2px; }
+:root:not([inDOMFullscreen]) #browser {
+  margin-bottom: var(--tbh);
+}
 
-  :root[lwtheme="true"][lwthemetextcolor="bright"] #urlbar, .searchbar-textbox {
-    border-color: var(--lwt-accent-color) !important;
-  }
-
-  #TabsToolbar-customization-target {
-    padding-top: 1px;
-    background-color: var(--chrome-content-separator-color);
-  }
-
-  .tab-line {
-    display: none;
-  }
-
-  #urlbar, .searchbar-textbox {
-    box-shadow: none !important;
-  }
-
-  #PanelUI-button {
-    border-left: none !important;
-  }
-
-  .tabbrowser-tab:not([selected="true"])::after,
-  .tabbrowser-tab:not([selected="true"])::before {
-    /* opacity: 0.1 !important; */
-  }
-  .tabbrowser-tab::after,
-  .tabbrowser-tab::before {
-    border-color: #000 !important;
-  }
-
-  .tab-close-button {
-    stroke-opacity: .5 !important;
-    scale: .9;
-  }
-
-  #tabs-newtab-button {
-    padding-left: 2.5px;
-  }
-
-  /* Darkern top window border highlight */
-  #nav-bar:not([inFullscreen="true"]) {
-    border-top: 1px solid black;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-  #nav-bar:not([inFullscreen="true"]) #nav-bar-customization-target {
-    margin-top: -1px;
-  }
-/* THEME END */
-
-
-/* BACK BUTTON */
-  #back-button {
-    border-radius: unset !important;
-    padding: 0 var(--toolbarbutton-outer-padding) !important;
-  }
-
-  #back-button > .toolbarbutton-icon {
-    background-color: unset !important;
-    border: unset !important;
-    padding: var(--toolbarbutton-inner-padding) !important;
-    border-radius: var(--toolbarbutton-border-radius) !important;
-    width: calc(2 * var(--toolbarbutton-inner-padding) + 16px) !important;
-    height: calc(2 * var(--toolbarbutton-inner-padding) + 16px) !important;
-  }
-
-  /* Hover and Active states to mimic other buttons */
-  #back-button:hover:not([disabled]) > .toolbarbutton-icon {
-    background-color: var(--toolbarbutton-hover-background) !important;
-  }
-
-  #back-button:active:not([disabled]) > .toolbarbutton-icon {
-    background-color: var(--toolbarbutton-active-background) !important;
-  }
-/* BACK BUTTON END*/
-
-
-/* TABS ON BOTTOM — Firefox 71+ */
-  /* tabbar to bottom */
-  #titlebar {
-    display: block !important;
-    position: absolute !important;
-    margin-top: calc(100vh - var(--tab-min-height));
-    z-index: 9000 !important;
-  }
-
-  /* window control buttons to top */
-  .titlebar-buttonbox-container {
-    top: calc(-100vh + var(--tab-min-height) + 2px);
-    position: absolute !important;
-    display: block !important;
-    margin-top: calc( var(--arrowpanel-padding) / 2 ) !important;
-  }
-  #nav-bar:not([inFullscreen="true"]) #nav-bar-customization-target {
-    margin-left: 80px !important;
-  }
-
-  #nav-bar:not([inFullscreen="true"]) {
-    margin-bottom: -0.5px;
-  }
-
-  #browser {
-    margin-bottom: var(--tab-min-height);
-  }
-
-  .titlebar-spacer {display: none !important;}
-  #toolbar-menubar {display: none !important;}
-
-  #TabsToolbar {
-    width: 100vw;
-  }
-
-
-  /* indicators */
-  .private-browsing-indicator {display: none !important;}
-  .accessibility-indicator    {display: none !important;}
-
-  /* remove tabs scroll arrows NOT WORKING */
-  .tabbrowser-arrowscrollbox /deep/ toolbarbutton {
-    display: none !important;
-  }
-
-  /* remove tabs list dropdown button */
-  #alltabs-button {display: none !important;}
-/* TABS ON BOTTOM END */
-
-
-/* Tabs close button: hidden by default */
-  .tab-close-button {
-    opacity: 0;
-  }
-
-  .tabbrowser-tab[selected="true"] .tab-close-button,
-  .tabbrowser-tab:hover .tab-close-button {
-    opacity: 1;
-  }
-
-/* END Tabs close button: hidden by default */
-
+/* moving window control buttons back up */
+#nav-bar-customization-target {
+  margin-left: 80px;
+}
+.titlebar-buttonbox-container {
+  transform: translateY(calc(-100vh + var(--tbh) - 1px));
+  margin-right: -66px;
+}
+.titlebar-buttonbox-container:not(:hover) { opacity: .5 !important; }
 
 /* KEYMASTERR */
-  #pageActionButton,
-  #page-action-buttons #pageActionSeparator,
-  .tab-bottom-line
-  { display: none; }
-
+  /* I really don't like that double arrow for hidden extensions */
   #nav-bar-overflow-button {
     list-style-image: url("chrome://global/skin/icons/more.svg") !important;
   }
 
-  .tab-background[selected="true"]:-moz-lwtheme {
-    background-color: var(--lwt-toolbar-field-background-color) !important;
-    background-image: none !important;
-  }
-
-  #urlbar-background {
-    border-color: transparent !important;
-  }
-
-  html > box:not([id]),
-  #navigator-toolbox {
-    /*! box-shadow: inset 0px 1px black !important; */
-  }
-
-  /* tab appear animation */
-  .tabbrowser-tab {
-    transform-origin: left;
-    animation-name: tab-appear;
-    animation-duration: .2s;
-    animation-timing-function: cubic-bezier(.75,0,.35,1);;
-    animation-fill-mode: forwards;
-  }
-  @keyframes tab-appear {
-    from {
-      transform: translateX(-10px);
-      opacity: 0;
-      max-width: 0;
-    }
+  html {
+    border-top: 1px solid black;
   }
 /* KEYMASTERR END */
