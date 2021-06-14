@@ -1,13 +1,10 @@
 :root { --tbh: 43px; }
 
 /* moving tabs bar down  */
-#titlebar {
-  display: block;
-  position: absolute;
-  z-index: 9000;
+#titlebar { margin-bottom: calc(-1 * var(--tbh)); }
+#TabsToolbar {
+  transform: translateY(calc(100vh - var(--tbh)));
   background: var(--lwt-accent-color-inactive, var(--lwt-accent-color));
-  bottom: 0;
-  width: 100%;
 }
 #titlebar .titlebar-spacer
 , #alltabs-button
