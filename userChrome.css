@@ -13,7 +13,7 @@
 }
 
 /* moving window control buttons back up */
-#nav-bar-customization-target {
+:root:not([inFullscreen]) #nav-bar-customization-target {
   margin-left: 80px;
 }
 .titlebar-buttonbox-container {
