@@ -1,4 +1,4 @@
-:root { --tbh: 44px; }
+:root { --tbh: 36px; }
 
 /* moving tabs bar down  */
 #titlebar { margin-bottom: calc(-1 * var(--tbh) + 1px); }
@@ -7,7 +7,7 @@
   background: var(--lwt-accent-color-inactive, var(--lwt-accent-color));
 }
 #titlebar .titlebar-spacer { display: none; }
-#TabsToolbar-customization-target { padding: 0 2px; }
+#TabsToolbar-customization-target { padding: 0; }
 :root:not([inDOMFullscreen]) #browser {
   margin-bottom: var(--tbh);
 }
@@ -17,9 +17,27 @@
   margin-left: 80px;
 }
 .titlebar-buttonbox-container {
-  transform: translateY(calc(-100vh + var(--tbh) - 1px));
+  transform: translateY(calc(-100vh + var(--tbh) + 3px));
   width: 80px;
   margin-right: -80px;
+}
+
+/* compact tabs */
+.tabbrowser-tab {
+  padding: 0 !important;
+}
+.tabbrowser-tab .tab-background {
+  margin: 0 1px 0 0 !important;
+  border-radius: 0 !important;
+}
+.tabbrowser-tab:not(:hover) .tab-close-button {
+  display: none;
+}
+#tabs-newtab-button {
+  padding: 0 !important;
+}
+#tabs-newtab-button .toolbarbutton-icon {
+  border-radius: 0 !important;
 }
 
 /* KEYMASTERR personal taste */
