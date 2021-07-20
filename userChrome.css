@@ -8,7 +8,8 @@
 }
 #titlebar .titlebar-spacer { display: none; }
 #TabsToolbar-customization-target { padding: 0; }
-:root:not([inDOMFullscreen]) #browser {
+:root:not([inDOMFullscreen]) #browser,
+:root:not([inDOMFullscreen]) #customization-container {
   margin-bottom: var(--tbh);
 }
 
