@@ -23,24 +23,6 @@
   margin-right: -80px;
 }
 
-/* compact tabs */
-.tabbrowser-tab {
-  padding: 0 !important;
-}
-.tabbrowser-tab .tab-background {
-  margin: 0 1px 0 0 !important;
-  border-radius: 0 !important;
-}
-.tabbrowser-tab:not(:hover) .tab-close-button {
-  display: none;
-}
-#tabs-newtab-button {
-  padding: 0 !important;
-}
-#tabs-newtab-button .toolbarbutton-icon {
-  border-radius: 0 !important;
-}
-
 /* KEYMASTERR personal taste */
   /* I really don't like that double arrow for hidden extensions */
   #nav-bar-overflow-button {
@@ -56,3 +38,28 @@
   #alltabs-button { display: none; }
 
 /* KEYMASTERR END */
+
+/* compact tabs */
+.tabbrowser-tab {
+  padding: 0 !important;
+}
+.tabbrowser-tab .tab-background {
+  margin: 0 1px 0 0 !important;
+  border-radius: 0 !important;
+}
+.tabbrowser-tab:not(:hover) .tab-close-button {
+  display: none;
+}
+#new-tab-button {
+  padding: 0 !important;
+}
+#new-tab-button .toolbarbutton-icon {
+  border-radius: 0 !important;
+}
+#scrollbutton-up,
+#scrollbutton-down {
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding-left: calc(var(--toolbarbutton-inner-padding) - 2px) !important;
+  padding-right: calc(var(--toolbarbutton-inner-padding) - 2px) !important;
+}
