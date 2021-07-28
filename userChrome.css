@@ -50,14 +50,15 @@
 .tabbrowser-tab:not(:hover) .tab-close-button {
   display: none;
 }
+#tabs-newtab-button,
 #new-tab-button {
   padding: 0 !important;
 }
+#tabs-newtab-button .toolbarbutton-icon,
 #new-tab-button .toolbarbutton-icon {
   border-radius: 0 !important;
 }
-#scrollbutton-up,
-#scrollbutton-down {
+#scrollbutton-up, #scrollbutton-down {
   border: 0 !important;
   border-radius: 0 !important;
   padding-left: calc(var(--toolbarbutton-inner-padding) - 2px) !important;
