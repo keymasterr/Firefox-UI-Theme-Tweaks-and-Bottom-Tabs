@@ -1,66 +1,112 @@
-:root { --tbh: 36px; }
+:root {
+  --window-controls-width: 83px;
+}
 
 /* moving tabs bar down  */
-#titlebar { margin-bottom: calc(-1 * var(--tbh) + 1px); }
-#TabsToolbar {
-  transform: translateY(calc(100vh - var(--tbh)));
-  background: var(--lwt-accent-color-inactive, var(--lwt-accent-color));
-}
-#titlebar .titlebar-spacer { display: none; }
-#TabsToolbar-customization-target { padding: 0; }
 :root:not([inDOMFullscreen]) #browser,
 :root:not([inDOMFullscreen]) #customization-container {
-  margin-bottom: var(--tbh);
+  margin-bottom: calc(var(--tab-min-height) + var(--tab-block-margin)*2);
+}
+#TabsToolbar {
+  margin-bottom: calc(-1 * var(--tab-min-height) - var(--tab-block-margin)*2);
+  transform: translateY(calc(100vh - var(--tab-min-height) - var(--tab-block-margin)*2));
+  background: var(--toolbar-bgcolor);
+}
+#TabsToolbar .titlebar-spacer {
+  width: 3px !important;
+}
+#navigator-toolbox {
+  border: none !important;
+}
+.browser-titlebar {
+  opacity: 1 !important;
+}
+#nav-bar-customization-target,
+#TabsToolbar-customization-target,
+#PanelUI-button,
+.urlbar-input-container {
+  :root[tabsintitlebar] & {
+    &:-moz-window-inactive {
+      opacity: var(--inactive-titlebar-opacity);
+    }
+  }
+}
+
+/* browser toolbar: reserve space for window control buttons (mac) */
+:root:not([inFullscreen]) #nav-bar-customization-target {
+  margin-left: var(--window-controls-width);
 }
 
 /* moving window control buttons back up */
-:root:not([inFullscreen]) #nav-bar-customization-target {
-  margin-left: 80px;
-}
 .titlebar-buttonbox-container {
-  transform: translateY(calc(-100vh + var(--tbh) + 3px));
-  width: 80px;
-  margin-right: -80px;
+  transform: translateY(calc(-100vh + var(--tab-min-height) + var(--tab-block-margin) + 2px));
+  width: var(--window-controls-width);
+  margin-right: calc(-1 * var(--window-controls-width));
 }
 
-/* KEYMASTERR personal taste */
-  /* I really don't like that double arrow for hidden extensions */
-  #nav-bar-overflow-button {
-    list-style-image: url("chrome://global/skin/icons/more.svg") !important;
-  }
+/* burger menu distance to the right border, to match the window border radius (in MacOS Sonoma) */
+#nav-bar {
+  --toolbar-start-end-padding: 5px !important;
+}
 
-  /* dim top window border highlight */
-  html {
-    border-top: 1px solid black;
-  }
+/* hide tab close button while not hovered */
+.tabbrowser-tab:not(:hover) .tab-close-button {
+  display: none;
+}
 
-  /* hide tabs list-view button */
-  #alltabs-button { display: none; }
 
-/* KEYMASTERR END */
+/* ! Purely stylistic choices below, feel free to remove */
 
 /* compact tabs */
+:root:not([inDOMFullscreen]) #browser,
+:root:not([inDOMFullscreen]) #customization-container {
+  --tab-block-margin: 0px;
+}
 .tabbrowser-tab {
   padding: 0 !important;
 }
-.tabbrowser-tab .tab-background {
-  margin: 0 1px 0 0 !important;
-  border-radius: 0 !important;
+#TabsToolbar {
+  --tab-border-radius: 0px;
+  --tab-block-margin: 0px;
 }
-.tabbrowser-tab:not(:hover) .tab-close-button {
-  display: none;
+#TabsToolbar .tab-close-button {
+  --tab-border-radius: 4px;
 }
 #tabs-newtab-button,
 #new-tab-button {
   padding: 0 !important;
 }
-#tabs-newtab-button .toolbarbutton-icon,
-#new-tab-button .toolbarbutton-icon {
-  border-radius: 0 !important;
+#TabsToolbar-customization-target,
+#tabbrowser-arrowscrollbox {
+  height: var(--tab-min-height);
 }
-#scrollbutton-up, #scrollbutton-down {
+#TabsToolbar .titlebar-spacer {
+  display: none;
+}
+.tab-context-line {
+  transform: translateY(var(--tab-min-height));
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+#scrollbutton-up,
+#scrollbutton-down {
   border: 0 !important;
   border-radius: 0 !important;
   padding-left: calc(var(--toolbarbutton-inner-padding) - 2px) !important;
   padding-right: calc(var(--toolbarbutton-inner-padding) - 2px) !important;
+}
+
+/* hide List All Tabs button */
+#alltabs-button {
+  display: none;
+}
+
+/* show borders between browsing window and toolbars */
+#browser {
+  border-block: 0.01px solid var(--chrome-content-separator-color);
+}
+
+/* bookmarks toolbar separator color */
+#PersonalToolbar toolbarseparator {
+  opacity: .35;
 }
