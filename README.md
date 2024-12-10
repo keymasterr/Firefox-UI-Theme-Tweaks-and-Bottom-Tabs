@@ -1,6 +1,6 @@
 # Firefox UI: Bottom Tabs (for MacOS)
 
-<img src="241209 - Firefox layout @2x.png" width="684" height="520">
+<img src="241209 - Firefox layout @2x.png" width="684">
 
 In MacOS there is a menu bar on top. So browser tabs should be positioned on the bottom of the screen to make it easier to aim them.
 
